@@ -1,0 +1,34 @@
+.sub-heading{
+    text-transform: uppercase;
+    color: lightskyblue;
+    padding: 10px 0px 0px;
+}
+
+.footer{
+    background-color: blue;
+    color: white;
+    font-size: 14px;
+    padding: 25px;
+}
+
+.ok-center{
+    justify-content: center;
+    padding: 20px;
+}
+
+.header-title{
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.h-close{
+    padding: 10px;
+}
+
+.body-dec{
+    padding-left: 10px;
+}
+
+.body-p{
+    line-height: 3rem;
+}

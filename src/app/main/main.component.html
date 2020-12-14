@@ -1,0 +1,141 @@
+﻿<hr>
+<div>
+    MEDLINE.COM
+</div>
+<div>
+    Account Registration
+</div>
+<h3>USER INFORMATION</h3>
+<hr>
+<div class="alert alert-danger" *ngIf="error">
+    Please review errors.
+</div>
+<div class="sub-heading">User Information</div>
+<form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+    <div class="row">        
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="firstname">First Name*</label>
+                <input type="text" formControlName="firstname" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
+                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstname.errors.required">Firstname is a required field.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="lastname">Last Name*</label>
+                <input type="text" formControlName="lastname" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" />
+                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastname.errors.required">Lastname is a required field.</div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="phone">Phone*</label>
+                        <input type="number" formControlName="phone" class="form-control" 
+                        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                            <div *ngIf="f.phone.errors.required">Phone is a required field.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="ext">EXT</label>
+                        <input type="number" class="form-control" />                        
+                    </div>
+                </div>
+            </div>                        
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="email">Email Id*</label>
+                <input type="email" formControlName="email" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email ID is a required field.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Next</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row footer">
+        <div class="col-sm-12 text-center">
+            &copy; 2009 Copyright.
+        </div>
+    </div>
+</form>
+
+<ng-template #modalPopup let-modal>
+
+    <div class="modal-content body-p">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">User Information</h5>
+        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')" #close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+              User has been created successfully with the below details.
+          </div>
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-sm-3">
+                  User Name:
+              </div>
+              <div class="col-sm-6">
+                  {{username}}
+              </div>              
+          </div>
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-sm-3">
+                  Phone:
+              </div>
+              <div class="col-sm-6">
+                  {{phone}}
+              </div>              
+          </div>
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-sm-3">
+                  Email:
+              </div>
+              <div class="col-sm-6">
+                  {{email}}
+              </div>              
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="modal.close('Save click')" [routerLink]="['thankyou']">OK</button>
+      </div>
+    </div>
+
+</ng-template>
